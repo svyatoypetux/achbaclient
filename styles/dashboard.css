@@ -1,0 +1,405 @@
+/* Dashboard Styles */
+.dashboard-container {
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 80px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-card {
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.dashboard-header {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.header-background {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 136, 0.3) 0%, 
+        rgba(0, 204, 255, 0.3) 50%, 
+        rgba(255, 136, 0, 0.3) 100%
+    );
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+}
+
+.header-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.avatar-container {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #00ff88;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.user-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: linear-gradient(135deg, #00ff88, #00ccff);
+}
+
+.dashboard-content {
+    padding: 80px 30px 30px;
+    color: #fff;
+}
+
+.dashboard-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    text-align: center;
+}
+
+.dashboard-title i {
+    color: #00ff88;
+    font-size: 1.5rem;
+}
+
+.dashboard-title h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.user-info {
+    margin-bottom: 2rem;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: #ccc;
+    font-weight: 500;
+}
+
+.info-value {
+    color: #00ff88;
+    font-weight: 600;
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    color: #fff;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #ff4444, #ff6b6b);
+    color: #fff;
+}
+
+.btn-admin {
+    background: linear-gradient(45deg, #9c27b0, #e91e63);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+}
+
+/* Дополнительные панели */
+.additional-panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.panel {
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    color: #fff;
+}
+
+.panel h3 {
+    color: #00ff88;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.download-item,
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.download-item:last-child,
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+.stat-label {
+    color: #ccc;
+}
+
+.stat-value {
+    color: #00ff88;
+    font-weight: 600;
+}
+
+.status-online {
+    color: #00ff88;
+}
+
+.status-offline {
+    color: #ff4444;
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    width: 90%;
+    max-width: 500px;
+    color: #fff;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #ccc;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #00ff88;
+}
+
+.modal h2 {
+    color: #00ff88;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #00ff88;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+}
+
+/* Загрузка */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 255, 136, 0.3);
+    border-radius: 50%;
+    border-top-color: #00ff88;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Уведомления */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 500;
+    z-index: 10000;
+    animation: slideInRight 0.3s ease;
+    max-width: 400px;
+}
+
+.notification.success {
+    background: linear-gradient(45deg, #00ff88, #00ccff);
+}
+
+.notification.error {
+    background: linear-gradient(45deg, #ff4444, #ff6b6b);
+}
+
+.notification.info {
+    background: linear-gradient(45deg, #4444ff, #6b6bff);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 1rem;
+    }
+    
+    .dashboard-content {
+        padding: 60px 20px 20px;
+    }
+    
+    .dashboard-actions {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .additional-panels {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .dashboard-container {
+        margin-top: 80px;
+        padding: 1rem;
+    }
+}

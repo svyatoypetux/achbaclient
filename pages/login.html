@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achba | Авторизация</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html">Achba</a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="review.html" class="nav-link">Обзор</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacts.html" class="nav-link">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="advantages.html" class="nav-link">Преимущества</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link active">Авторизация</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="auth-container">
+        <form class="auth-form" id="loginForm">
+            <h2><i class="fas fa-sign-in-alt"></i> Вход в аккаунт</h2>
+            
+            <div class="form-group">
+                <label for="email">Email или логин:</label>
+                <input type="text" id="email" name="email" placeholder="Введите email или логин" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="remember" name="remember">
+                    Запомнить меня
+                </label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <i class="fas fa-sign-in-alt"></i> Войти
+            </button>
+            
+            <div class="auth-links">
+                <p>Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+                <p><a href="forgot-password.html">Забыли пароль?</a></p>
+            </div>
+        </form>
+    </main>
+
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

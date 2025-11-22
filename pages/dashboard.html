@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achba | Личный кабинет</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="/">Achba</a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="review.html" class="nav-link">Обзор</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacts.html" class="nav-link">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="advantages.html" class="nav-link">Преимущества</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/dashboard" class="nav-link active">Личный кабинет</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="dashboard-card">
+            <!-- Фоновое изображение -->
+            <div class="dashboard-header">
+                <div class="header-background"></div>
+            </div>
+
+            <!-- Основной контент -->
+            <div class="dashboard-content">
+                <div class="dashboard-title">
+                    <i class="fas fa-home"></i>
+                    <h1>Личный кабинет</h1>
+                </div>
+
+                <div class="user-info">
+                    <div class="info-row">
+                        <span class="info-label">Логин</span>
+                        <span class="info-value" id="userLogin">Загрузка...</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <span class="info-label">E-mail</span>
+                        <span class="info-value" id="userEmail">Загрузка...</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <span class="info-label">Роль</span>
+                        <span class="info-value" id="userRole">Загрузка...</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <span class="info-label">Дата регистрации</span>
+                        <span class="info-value" id="userRegistered">Загрузка...</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">UID</span>
+                        <span class="info-value" id="userUID">Загрузка...</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Подписка</span>
+                        <span class="info-value" id="userSubscription">Загрузка...</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-actions">
+                    <button class="action-btn btn-primary" id="changeRAMBtn">
+                        <i class="fas fa-memory"></i>
+                        Изменить RAM
+                    </button>
+                    
+                    <button class="action-btn btn-secondary" id="activateKeyBtn">
+                        <i class="fas fa-key"></i>
+                        Активировать ключ
+                    </button>
+                    
+                    <!-- Админ панель только для zibbora -->
+                    <button class="action-btn btn-admin" id="adminPanelBtn" style="display: none;">
+                        <i class="fas fa-users-cog"></i>
+                        Админ панель
+                    </button>
+                    
+                    <button class="action-btn btn-danger" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Выйти
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Дополнительные панели -->
+        <div class="additional-panels">
+            <div class="panel downloads-panel" id="downloadsPanel" style="display: none;">
+                <h3><i class="fas fa-download"></i> Загрузки</h3>
+                <div class="download-item">
+                    <span>Achba Client v2.1.0</span>
+                    <button class="btn btn-primary btn-sm" onclick="downloadClient()">
+                        <i class="fas fa-download"></i>
+                        Скачать
+                    </button>
+                </div>
+                <div class="download-item">
+                    <span>Конфигурации</span>
+                    <button class="btn btn-secondary btn-sm" onclick="openConfigs()">
+                        <i class="fas fa-cog"></i>
+                        Открыть
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel subscription-panel" id="subscriptionPanel" style="display: none;">
+                <h3><i class="fas fa-exclamation-triangle"></i> Нет подписки</h3>
+                <p>Для доступа к загрузкам необходимо активировать подписку.</p>
+                <p>Используйте кнопку "Активировать ключ" выше для активации.</p>
+            </div>
+
+            <div class="panel stats-panel">
+                <h3><i class="fas fa-chart-bar"></i> Статистика</h3>
+                <div class="stat-item">
+                    <span class="stat-label">Время в игре:</span>
+                    <span class="stat-value">127 часов</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Последний вход:</span>
+                    <span class="stat-value" id="lastLogin">Загрузка...</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Статус:</span>
+                    <span class="stat-value status-online">Онлайн</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальные окна -->
+    <div id="ramModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Изменить RAM</h2>
+            <form id="ramForm">
+                <div class="form-group">
+                    <label for="ramAmount">Количество RAM (GB):</label>
+                    <select id="ramAmount" name="ramAmount">
+                        <option value="2">2 GB</option>
+                        <option value="4" selected>4 GB</option>
+                        <option value="8">8 GB</option>
+                        <option value="16">16 GB</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="keyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Активировать ключ</h2>
+            <form id="keyForm">
+                <div class="form-group">
+                    <label for="activationKey">Ключ активации:</label>
+                    <input type="text" id="activationKey" name="activationKey" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Активировать</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+</body>
+</html>
